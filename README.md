@@ -29,8 +29,6 @@
 
 ## 🏗️ System Architecture
 
-![Architecture Diagram](docs/architecture.png)
-
 ### **Components**
 - **Frontend:** React (Next.js) + TailwindCSS
 - **Backend:** FastAPI + Celery + PostgreSQL + S3 + Elasticsearch
