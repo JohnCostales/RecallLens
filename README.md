@@ -29,6 +29,22 @@
 
 ## 🏗️ System Architecture
 
+| Section/Component        | Purpose / Role                                                    | Technology / Examples                  |
+|------------------------- |-------------------------------------------------------------------|----------------------------------------|
+| **User / Client**        | Initiates uploads, connects video sources, interacts with results | Web browser, mobile app                |
+| **Frontend**             | User interface for uploads, search, results display               | React, Tailwind CSS                    |
+| **API Gateway**          | Handles routing, integrates auth, connects frontend & backend     | API layer, handles Auth0/Firebase      |
+| **Auth**                 | Authenticates users, manages sessions                             | Auth0, Firebase                        |
+| **Integration APIs**     | Connects to Zoom, YouTube, LMS for source videos                  | Zoom API, YouTube API, LMS API         |
+| **Backend**              | Orchestrates all processing, manages data flow                    | FastAPI (Python)                       |
+| **Task Queue**           | Runs async, distributed jobs for processing                       | Celery                                 |
+| **Video Processor**      | Extracts frames, audio, visuals from video                        | FFmpeg, OpenCV                         |
+| **ML Processing**        | Runs AI/ML models: transcription, summarization, QA, tagging      | HuggingFace Transformers               |
+| **Frame/Image Extraction**| Analyzes visuals (slides, diagrams, shared docs)                 | OpenCV, ML models                      |
+| **Storage**              | Stores all files, metadata, and search indexes                    | S3 (files), PostgreSQL (metadata),     |
+|                          |                                                                   | Elasticsearch (semantic search)        |
+| **Search / Retrieval**   | Provides fast, structured search & retrieval                      | Elasticsearch, API queries             |
+
 ### **Components**
 - **Frontend:** React (Next.js) + TailwindCSS
 - **Backend:** FastAPI + Celery + PostgreSQL + S3 + Elasticsearch
@@ -71,8 +87,8 @@
 | Backend    | FastAPI, Celery, PostgreSQL               |
 | ML         | HuggingFace Transformers/Inference API    |
 | Video      | FFmpeg, OpenCV                            |
-| Storage    | S3 or Cloudinary (snapshots/frames)       |
-| Search     | Elasticsearch or Weaviate                 |
+| Storage    | S3                                        |
+| Search     | Elasticsearch                             |
 | Auth       | Auth0/Firebase                            |
 | Deploy     | Docker, K8s, AWS/Railway                  |
 | Integrate  | Zoom/Meet/YouTube APIs                    |
